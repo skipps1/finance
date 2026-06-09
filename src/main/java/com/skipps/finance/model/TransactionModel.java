@@ -3,6 +3,9 @@ package com.skipps.finance.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Id;
 
 import jakarta.persistence.Column;
@@ -35,6 +38,7 @@ public class TransactionModel
 
 	@ManyToOne
 	@JoinColumn(name = "userId")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private UserModel user;
 
 	@Enumerated(EnumType.STRING)
