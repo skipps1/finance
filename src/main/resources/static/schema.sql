@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    passwordHash VARCHAR(60),
+    email VARCHAR(60) UNIQUE,
+    role VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS category(
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS transactions (
+    id BIGSERIAL PRIMARY KEY,
+    userId BIGINT NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    amount NUMERIC(19,4) NOT NULL,
+    timestamp TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    categoryId BIGINT,
+    description TEXT,
+    CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_category FOREIGN KEY (categoryId) REFERENCES category(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS budget(
+    id BIGSERIAL PRIMARY KEY,
+    userId BIGINT NOT NULL,
+    categoryId BIGINT,
+    amountLimit NUMERIC(19,4) NOT NULL,
+    CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_category FOREIGN KEY (categoryId) REFERENCES category(id) ON DELETE SET NULL
+);
