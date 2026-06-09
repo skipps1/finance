@@ -1,0 +1,209 @@
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/home/skipps1/.m2/wrapper/dists/apache-maven-3.9.11/a2d47e15/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.skipps:finance >-------------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.5.0:clean (default-clean) @ finance ---
+[INFO] Deleting /home/skipps1/Documents/projects/finance/target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ finance ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.14.1:compile (default-compile) @ finance ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 43 source files with javac [debug parameters release 21] to target/classes
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ finance ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ finance ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.5:test (default-test) @ finance ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.skipps.finance.controller.AuthControllerIntegrationTest
+13:42:12.604 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.skipps.finance.controller.AuthControllerIntegrationTest]: AuthControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:42:12.775 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.skipps.finance.FinanceApplication for test class com.skipps.finance.controller.AuthControllerIntegrationTest
+13:42:12.883 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.skipps.finance.controller.AuthControllerIntegrationTest]: AuthControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:42:12.891 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.skipps.finance.FinanceApplication for test class com.skipps.finance.controller.AuthControllerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-05-27T13:42:13.292+02:00  INFO 40735 --- [finance] [           main] c.s.f.c.AuthControllerIntegrationTest    : Starting AuthControllerIntegrationTest using Java 25.0.3 with PID 40735 (started by skipps1 in /home/skipps1/Documents/projects/finance)
+2026-05-27T13:42:13.294+02:00  INFO 40735 --- [finance] [           main] c.s.f.c.AuthControllerIntegrationTest    : The following 1 profile is active: "test"
+2026-05-27T13:42:14.135+02:00  INFO 40735 --- [finance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-27T13:42:14.202+02:00  INFO 40735 --- [finance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
+2026-05-27T13:42:14.737+02:00  INFO 40735 --- [finance] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-27T13:42:14.783+02:00  INFO 40735 --- [finance] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-27T13:42:15.238+02:00  INFO 40735 --- [finance] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-27T13:42:15.267+02:00  INFO 40735 --- [finance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-27T13:42:15.415+02:00  INFO 40735 --- [finance] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6eab92f3
+2026-05-27T13:42:15.416+02:00  INFO 40735 --- [finance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-27T13:42:15.440+02:00  WARN 40735 --- [finance] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-27T13:42:15.459+02:00  INFO 40735 --- [finance] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/finance_tracker_test]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: finance_tracker_test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-27T13:42:16.404+02:00  INFO 40735 --- [finance] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-27T13:42:16.456+02:00  INFO 40735 --- [finance] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-27T13:42:16.571+02:00  INFO 40735 --- [finance] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-27T13:42:16.734+02:00  INFO 40735 --- [finance] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2026-05-27T13:42:17.731+02:00  WARN 40735 --- [finance] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-27T13:42:18.331+02:00  INFO 40735 --- [finance] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-27T13:42:18.331+02:00  INFO 40735 --- [finance] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-27T13:42:18.336+02:00  INFO 40735 --- [finance] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-05-27T13:42:18.461+02:00  INFO 40735 --- [finance] [           main] c.s.f.c.AuthControllerIntegrationTest    : Started AuthControllerIntegrationTest in 5.495 seconds (process running for 6.97)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/home/skipps1/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/auth/register
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"92"]
+             Body = {
+    "username": "skipps",
+    "email": "skipps@example.com",
+    "password": "password"
+}
+
+    Session Attrs = {}
+
+Handler:
+             Type = com.skipps.finance.controller.AuthController
+           Method = com.skipps.finance.controller.AuthController#registerUser(RegisterRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJza2lwcHMiLCJpYXQiOjE3Nzk4ODIxMzksImV4cCI6MTc3OTg4NTczOX0.fjOvBzGfbUnCOG6z5tRnodGAyAnkKEpvQLCmDfQOdFI","response":{"username":"skipps","email":"skipps@example.com"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"58"]
+             Body = {
+    "username": "skipps",
+    "password": "password",
+}
+
+    Session Attrs = {}
+
+Handler:
+             Type = com.skipps.finance.controller.AuthController
+           Method = com.skipps.finance.controller.AuthController#loginUser(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.http.converter.HttpMessageNotReadableException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 500
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"status":500,"error":"Internal Server Error","message":"Unexpected server error","timestamp":"2026-05-27T13:42:19.328018639"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.993 s <<< FAILURE! -- in com.skipps.finance.controller.AuthControllerIntegrationTest
+[ERROR] com.skipps.finance.controller.AuthControllerIntegrationTest.loginUserReturnsJwtAndUserDTO -- Time elapsed: 0.876 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at com.skipps.finance.controller.AuthControllerIntegrationTest.loginUserReturnsJwtAndUserDTO(AuthControllerIntegrationTest.java:84)
+
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Failures:
+[ERROR]   AuthControllerIntegrationTest.loginUserReturnsJwtAndUserDTO:84 Status expected:<200> but was:<500>
+[INFO]
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.616 s
+[INFO] Finished at: 2026-05-27T13:42:19+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.5:test (default-test) on project finance: There are test failures.
+[ERROR]
+[ERROR] See /home/skipps1/Documents/projects/finance/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+⏵ Task `AuthControllerIntegrationTest..loginUserReturnsJwtAndUserDTO` finished with exit code: 1
+⏵ Command: /bin/sh -i -c 'package="com.skipps.finance.controller"; outer=""; inner="AuthControllerIntegrationTest"; method="loginUserReturnsJwtAndUserDTO"; sep="$"; if [ -n "$outer" ]; then c="$outer$sep$inner"; else c="$inner"; fi; if [ -n "$package" ]; then fqc="$package.$c"; else fqc="$c"; fi; f="/home/skipps1/Documents/projects/finance/src/test/java/com/skipps/finance/controller/AuthControllerIntegrationTest.java"; p="$PWD"; d=$(dirname "${f#$p/}"); if [ -f pom.xml ]; then m="."; md="$d"; while [ "$md" != "." ] && [ "$md" != "/" ]; do if [ -f "$md/pom.xml" ]; then m="$md"; break; fi; md=$(dirname "$md"); done; [ -f ./mvnw ] && CMD="./mvnw" || CMD="mvn"; if [ "$m" = "." ]; then $CMD clean test -Dtest="$fqc#$method"; else $CMD clean test-compile -pl "$m" -am && $CMD test -pl "$m" -Dtest="$fqc#$method"; fi; elif [ -f build.gradle ] || [ -f build.gradle.kts ] || [ -f settings.gradle ] || [ -f settings.gradle.kts ]; then m="."; md="$d"; while [ "$md" != "." ] && [ "$md" != "/" ]; do if [ -f "$md/build.gradle" ] || [ -f "$md/build.gradle.kts" ]; then m="$md"; break; fi; md=$(dirname "$md"); done; if [ "$m" = "." ]; then mp=""; else mp=":$(echo "$m" | tr '/' ':')"; fi; [ -f ./gradlew ] && CMD="./gradlew" || CMD="gradle"; $CMD ${mp}:test --tests "$fqc.$method"; else >&2 echo 'No build tool found'; exit 1; fi;'
