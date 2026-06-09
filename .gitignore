@@ -1,0 +1,30 @@
+# Build output
+target/
+*.class
+
+# Logs and temporary files
+*.log
+output.txt
+tmp/
+temp/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+
+# IDE/editor files
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven wrapper cache
+.mvn/wrapper/maven-wrapper.jar
