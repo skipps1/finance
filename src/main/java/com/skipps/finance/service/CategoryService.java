@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skipps.finance.exception.DuplicateResourceException;
 import com.skipps.finance.exception.ResourceNotFoundException;
 import com.skipps.finance.model.CategoryModel;
 import com.skipps.finance.repository.CategoryRepository;
@@ -22,6 +23,10 @@ public class CategoryService
 	public String createCategory(String categoryName)
 	{
         CategoryModel category = new CategoryModel(categoryName);
+        if(categoryRepository.existsByName(categoryName))
+        {
+            throw new DuplicateResourceException("Category name is already taken");
+        }
 	    return categoryRepository.save(category).getName();
 	}
 
