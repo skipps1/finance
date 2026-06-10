@@ -4,7 +4,6 @@ target/
 
 # Logs and temporary files
 *.log
-output.txt
 tmp/
 temp/
 
