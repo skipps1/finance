@@ -19,7 +19,6 @@ import com.skipps.finance.repository.UserRepository;
 @Service
 public class UserService implements UserDetailsService
 {
-
     private UserRepository userRepository;
 
 

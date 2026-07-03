@@ -21,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -45,7 +46,7 @@ public class UserControllerIntegrationTest
 	}
 
 	@Test
-	void UpdateUsernameReturnsJwt() throws Exception
+	void updateUsernameReturnsJwt() throws Exception
 	{
 	    String requestBody = """
 			{
@@ -62,7 +63,27 @@ public class UserControllerIntegrationTest
 	}
 
 	@Test
-	void UpdateEmailReturnsUserDTO() throws Exception
+	void updateUsernameToUsedOneReturnsConflict() throws Exception
+	{
+        registerAndGetJwt("skipps1", "example@gmail.com");
+
+        String requestBody = """
+            {
+                "username": "skipps1"
+            }
+            """;
+
+        mockMvc.perform(put("/api/user/username")
+                .header("Authorization", "Bearer " + jwt)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody))
+            .andExpect(status().isConflict())
+            .andExpect(jsonPath("$.message").value("Username is already taken"));
+
+	}
+
+	@Test
+	void updateEmailReturnsUserDTO() throws Exception
 	{
 	    String requestBody = """
 			{
@@ -81,7 +102,26 @@ public class UserControllerIntegrationTest
 	}
 
 	@Test
-	void UpdatePasswordReturnsNothing() throws Exception
+	void updateEmailToUsedOneReturnsConflict() throws Exception
+	{
+	    String requestBody = """
+			{
+			    "email": "example@gmail.com"
+			}
+			""";
+
+		registerAndGetJwt("skiiiips", "example@gmail.com");
+
+		mockMvc.perform(put("/api/user/email")
+		        .header("Authorization", "Bearer " + jwt)
+		        .contentType(MediaType.APPLICATION_JSON)
+		        .content(requestBody))
+		    .andExpect(status().isConflict())
+			.andExpect(jsonPath("$.message").value("User with such an email already exists"));
+	}
+
+	@Test
+	void updatePasswordReturnsNothing() throws Exception
 	{
 	    String requestBody = """
 			{
