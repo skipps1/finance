@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.Matchers.containsInAnyOrder;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,11 +69,12 @@ public class SummaryControllerIntegrationTest
         createTransactionForTest(TransactionType.INCOME, new BigDecimal(4.2));
         createTransactionForTest(TransactionType.EXPENSE, new BigDecimal(3.5));
         createTransactionForTest(TransactionType.INCOME, new BigDecimal(1.0));
+        LocalDateTime timestamp = LocalDateTime.now();
 
         mockMvc.perform(get("/api/summary/income")
                 .header("Authorization", "Bearer " + jwt)
-                .param("year", "2026")
-                .param("month", "6"))
+                .param("year", String.valueOf(timestamp.getYear()))
+                .param("month", String.valueOf(timestamp.getMonthValue())))
             .andExpect(status().isOk())
             .andExpect(content().string("5.20"));
 
@@ -84,11 +86,12 @@ public class SummaryControllerIntegrationTest
         createTransactionForTest(TransactionType.INCOME, new BigDecimal(4.2));
         createTransactionForTest(TransactionType.EXPENSE, new BigDecimal(3.5));
         createTransactionForTest(TransactionType.EXPENSE, new BigDecimal(1.0));
+        LocalDateTime timestamp = LocalDateTime.now();
 
         mockMvc.perform(get("/api/summary/expense")
                 .header("Authorization", "Bearer " + jwt)
-                .param("year", "2026")
-                .param("month", "6"))
+                .param("year", String.valueOf(timestamp.getYear()))
+                .param("month", String.valueOf(timestamp.getMonthValue())))
             .andExpect(status().isOk())
             .andExpect(content().string("4.50"));
     }
@@ -100,14 +103,15 @@ public class SummaryControllerIntegrationTest
         createTransactionForTest(TransactionType.INCOME, new BigDecimal(4.2));
         createTransactionForTest(TransactionType.EXPENSE, new BigDecimal(3.5));
         createTransactionForTest(TransactionType.EXPENSE, new BigDecimal(1.0));
+        LocalDateTime timestamp = LocalDateTime.now();
 
         mockMvc.perform(get("/api/summary/monthly")
                 .header("Authorization", "Bearer " + jwt)
-                .param("year", "2026")
-                .param("month", "6"))
+                .param("year", String.valueOf(timestamp.getYear()))
+                .param("month", String.valueOf(timestamp.getMonthValue())))
             .andExpect(status().isOk())
-        .andExpect(jsonPath("$.year").value(2026))
-        .andExpect(jsonPath("$.month").value(6))
+        .andExpect(jsonPath("$.year").value(timestamp.getYear()))
+        .andExpect(jsonPath("$.month").value(timestamp.getMonthValue()))
         .andExpect(jsonPath("$.totalIncome").value(10.9))
         .andExpect(jsonPath("$.totalExpenses").value(4.5))
         .andExpect(jsonPath("$.balance").value(6.4));
@@ -118,6 +122,7 @@ public class SummaryControllerIntegrationTest
     {
         CategoryModel food = categoryRepository.save(new CategoryModel("Food"));
         CategoryModel education = categoryRepository.save(new CategoryModel("Education"));
+        LocalDateTime timestamp = LocalDateTime.now();
 
         createTransactionForTestWithCategoryx(TransactionType.EXPENSE, new BigDecimal(4.5), food.getId());
         createTransactionForTestWithCategoryx(TransactionType.EXPENSE, new BigDecimal(2.3), food.getId());
@@ -125,8 +130,8 @@ public class SummaryControllerIntegrationTest
 
         mockMvc.perform(get("/api/summary/expenses/by-category")
                 .header("Authorization", "Bearer " + jwt)
-                .param("year", "2026")
-                .param("month", "6"))
+                .param("year", String.valueOf(timestamp.getYear()))
+                .param("month", String.valueOf(timestamp.getMonthValue())))
             .andExpect(jsonPath("$.length()").value(2))
             .andExpect(jsonPath("$[*].categoryName", containsInAnyOrder("Food", "Education")))
             .andExpect(jsonPath("$[*].totalSpent", containsInAnyOrder(6.8, 7.0)));

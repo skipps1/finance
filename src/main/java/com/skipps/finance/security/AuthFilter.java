@@ -21,7 +21,6 @@ public class AuthFilter extends OncePerRequestFilter
 
 	private final JwtUtil jwtUtil;
 
-
 	private final UserService userService;
 
 	public AuthFilter(JwtUtil jwtUtil, UserService userService)
